@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "ContainerCenter";
+
+package ContainerCenter;
+
+service ContainerService {
+  rpc register (RegisterRequest) returns (EmptyReply);
+  rpc getServerIp (ServerRequest) returns (ServerReply);
+}
+
+message RegisterRequest {
+  string container = 1;
+  string ip = 2;
+}
+
+message ServerRequest{
+	string containerId = 1;
+}
+
+message ServerReply {
+	string ip = 1;
+}
+
+message EmptyReply {
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "5LP5pdW/BuyE1wFu7iSlFKnw1nSxY5ALS9qQoRhQ717lnucAUnW9GwTeclji+JCFZlXIAHZQ0azYiGi1f7FDQQ==",
+  "success": true,
+  "projectFilePath": "E:\\Project\\C#\\MLab-Csharp\\backend\\ResponseUtils\\ResponseUtils.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
