@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Search Engine</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+    <script src="../js/main.js" type="text/javascript"></script>
+    <script src="../mdl/material.min.js"></script>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../mdl/material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+<div class="content">
+    <div class="container">
+        <div class="text-center">
+            <h1>Image Search Engine</h1>
+            <h3>1753837 陈柄畅</h3>
+        </div>
+
+        <div class="subcription-info text-center">
+            <form id="img_form" class="subscribe_form" method="post" enctype="multipart/form-data">
+                <div id="drag_area">
+                    <div id="query_info">
+                        <input id="click_choose" type="file" name="file" onchange="clickUpload(event)">
+                        <p>Drag picture here <br> or click to upload</p>
+                    </div>
+                    <img id="query_img">
+                </div>
+                <input class="subscribe center" value="Search" type="submit" onclick="fun()">
+            </form>
+            <button id="clear_button" onclick="clear_image()">Clear</button>
+            <select id="max_count" class="custom-select" style="margin-top: 20px">
+                <option value="0">Choose max count of results</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9" selected="selected">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<section class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1 icons">
+                <img id="icon_all" src="../images/all_c.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_all')">
+                <p style="color:aquamarine">ALL</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_animals" src="../images/animals.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_animals')">
+                <p style="color:aquamarine">ANIMALS</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_baby" src="../images/baby.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_baby')">
+                <p style="color:aquamarine">BABY</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_bird" src="../images/bird.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_bird')">
+                <p style="color:aquamarine">BIRD</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_car" src="../images/car.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_car')">
+                <p style="color:aquamarine">CAR</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_clouds" src="../images/clouds.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_clouds')">
+                <p style="color:aquamarine">CLOUD</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_female" src="../images/female.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_female')">
+                <p style="color:aquamarine">FEMALE</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_flower" src="../images/flower.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_flower')">
+                <p style="color:aquamarine">FLOWER</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_food" src="../images/food.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_food')">
+                <p style="color:aquamarine">FOOD</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_indoor" src="../images/indoor.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_indoor')">
+                <p style="color:aquamarine">INDOOR</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_lake" src="../images/lake.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_lake')">
+                <p style="color:aquamarine">LAKE</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_male" src="../images/male.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_male')">
+                <p style="color:aquamarine">MALE</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_night" src="../images/night.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_night')">
+                <p style="color:aquamarine">NIGHT</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_people" src="../images/people.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_people')">
+                <p style="color:aquamarine">PEOPLE</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_plant" src="../images/plant.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_plant')">
+                <p style="color:aquamarine">PLANT</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_portrait" src="../images/portrait.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_portrait')">
+                <p style="color:aquamarine">PORTRAIT</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_river" src="../images/river.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_river')">
+                <p style="color:aquamarine">RIVER</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_sea" src="../images/sea.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_sea')">
+                <p style="color:aquamarine">SEA</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_sky" src="../images/sky.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_sky')">
+                <p style="color:aquamarine">SKY</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_structures" src="../images/structures.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_structures')">
+                <p style="color:aquamarine">STRUCTURE</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_sunset" src="../images/sunset.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_sunset')">
+                <p style="color:aquamarine">SUNSET</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_transport" src="../images/transport.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_transport')">
+                <p style="color:aquamarine">TRANSPORT</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_tree" src="../images/tree.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_tree')">
+                <p style="color:aquamarine">TREE</p>
+            </div>
+            <div class="col-lg-1 icons">
+                <img id="icon_water" src="../images/water.png" class="img-responsive center-block"
+                    onclick="choose_tag('icon_water')">
+                <p style="color:aquamarine">WATER</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<center>
+    <img id="load" src="../images/ajax-loader.gif" style="height:100px;weight:100px;display:none;">
+</center>
+
+<div id="main" class="container text-center">
+    <h3 id="overview"></h3>
+    <div id="result" class="row">
+    </div>
+</div>
+<script>
+    function fun() {
+        console.log(tag);
+        if (tag.length == 0) {
+            alert("Set tag to default all");
+            tag.push("all");
+        }
+        var selector = document.getElementById("max_count");
+        var index = selector.selectedIndex;
+        number = selector.options[index].value;
+        if (number == "0") {
+            alert("Set max count to default 9");
+            number = "9";
+        }
+        var main = document.getElementById("main");
+        var result = document.getElementById("result");
+        main.removeChild(result);
+        result = document.createElement("div");
+        result.setAttribute("id", "result");
+        result.setAttribute("class", "row");
+        main.appendChild(result);
+        document.getElementById("overview").innerHTML = "";
+        $('#load').show();
+
+        $("form").submit(function (evt) {
+            evt.preventDefault();
+            var formData = new FormData($(this)[0]);
+            var post_url = 'imgUpload/'
+            for (var i = 0; i < tag.length; i++) {
+                if (i != tag.length - 1) {
+                    post_url = post_url + tag[i] + "_";
+                } else {
+                    post_url = post_url + tag[i] + "/";
+                }
+            }
+            post_url = post_url + number;
+
+            $.ajax({
+                url: post_url,
+                type: 'POST',
+                data: formData,
+                cache: false,
+                contentType: false,
+                enctype: 'multipart/form-data',
+                processData: false,
+
+                success: function (response) {
+                    $('#load').hide();
+                    var result = document.getElementById("result");
+                    for (var i = 0; i < number; i++) {
+                        var image = document.createElement("img");
+                        image.src = response['image' + i.toString()];
+                        image.setAttribute("class", "result_img");
+                        result.appendChild(image);
+                    }
+                    document.getElementById("overview").innerHTML = "Find " + number.toString() + " results <br>(click to add favaorite list)<br>tags:";
+                    for (var i = 0; i < tag.length; i++) {
+                        document.getElementById("overview").innerHTML += " " + tag[i];
+                    }
+                }
+            });
+            return false;
+        })
+    };
+
+
+    $(document).on("click", ".result_img", function () {
+        var split_list = this.src.split("/");
+        var post_url = "favour/" + split_list[split_list.length - 1];
+        $.ajax({
+            url: post_url,
+            type: 'POST',
+
+            success: function (response) {
+                if (response['success']) {
+                    alert("Successful to add favouraite list! You can view it in 'favourite' folder.");
+                } else {
+                    alert("Oops! It failed. Please try again.");
+                }
+            }
+        })
+    })
+</script>
+</body>
+
+</html>

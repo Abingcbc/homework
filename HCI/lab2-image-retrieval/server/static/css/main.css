@@ -1,0 +1,240 @@
+.img_header {
+  position: relative;
+  background-image: url(../images/bg.jpg);
+}
+.content
+{
+	margin-top: 50px;
+	color: #fff;
+}
+#drag_area {
+    text-align: center;
+    margin:  110px 0px 69px;
+    min-height: 104px;
+}
+#drag_area > div {
+    width: 200px;
+    height: 200px;
+    margin: 0px 1%;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 52px;
+    position: relative;
+    font-weight: 700;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#query_img {
+    position: relative;
+    display: none;
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+#click_choose {
+    opacity:0;
+    filter:alpha(opacity=0);
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+#clear_button {
+    margin-top: 20px;
+    right: 0px;
+    top: 0px;
+    width: 160px;
+    height: 50px;
+    position: relative;
+    color: #FFF;
+    background-color: #24B7A4;
+    border: medium none;
+    border-radius: 30px;
+    font-size: 18px;
+    display: none;
+}
+.img
+{
+	margin-top: 30px;
+}
+.img i
+{
+	font-size: 44px;
+}
+.subcription-info 
+{
+    width: 40%;
+    margin: 0 auto 50px;
+}
+.abt-hd
+{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 0px 15px;
+}
+.contact-title i {
+    color: #FFFFFF;
+    font-size: 1.8em;
+    text-align: right;
+    display: block;
+    padding: 65px 0 0 0;
+}
+.contact-title h2
+{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #fff;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px 0px 30px;
+}
+.contact-title p {
+    text-align: right;
+    margin-top: -5px;
+    color: rgba(236,240,241,0.9);
+    font-size: 13px;
+    word-spacing: 1px;
+    line-height: 25px;
+    padding-bottom: 30px;
+}
+.contact input[type="text"], .contact input[type="email"] {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #EDEDED;
+    margin-bottom: 20px;
+    font-size: 13px;
+    outline: none;
+    color: #ffffff;
+}
+.social a i
+{
+    color: #fff;
+    display: block;
+    line-height: 48px;
+
+}
+.social a:hover
+{
+    text-decoration: none;
+}
+#contact-info
+{
+	padding: 0px 0px 40px;
+}
+.contact textarea {
+    width: 100%;
+    background: transparent;
+    font-size: 13px;
+    padding: 15px;
+    height: 100px;
+    border: 1px solid #EDEDED;
+    outline: none;
+    resize: none;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.contact-submit {
+    background-color: #24B7A4;
+    border: 2px solid #24B7A4;
+    color: #FFFFFF;
+    width: 100%;
+    display: block;
+    word-spacing: 1px;
+    outline: none;
+    margin: 0 auto;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-weight: 700;
+    padding: 10px;
+    -webkit-transition: all 0.3s ease-in-out !important;
+    -moz-transition: all 0.3s ease-in-out !important;
+    -ms-transition: all 0.3s ease-in-out !important;
+    -o-transition: all 0.3s ease-in-out !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.validation {
+    color: red;
+    display:none;
+    margin: 0 0 20px;
+    font-weight:400;
+    font-size:13px;
+}
+
+#sendmessage {
+    color: green;
+    border:1px solid green;
+    display:none;
+    text-align:center;
+    padding:15px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+#errormessage {
+    color: red;
+    display:none;
+    border:1px solid red;
+    text-align:center;
+    padding:15px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+#sendmessage.show, #errormessage.show, .show {
+	display:block;
+}
+
+footer {
+    padding: 30px;
+    color: #fff;
+    text-align: center;
+    background-color: #242830;
+}
+.footer a
+{
+    color: #24B7A4;
+}
+.credits {
+    padding-top: 10px;
+}
+
+.subscribe_form {
+    position: relative;
+}
+.subscribe_form .subscribe {
+    right: 0px;
+    top: 0px;
+    width: 160px;
+    height: 50px;
+    position: relative;
+    color: #FFF;
+    background-color: #24B7A4;
+    border: medium none;
+    font-family: "Roboto Slab",serif;
+    font-size: 18px;
+}
+h2.subs-title  {
+    font-family: 'Lobster', cursive;
+    font-size: 34px;
+    padding: 30px 0px 20px;
+}
+.subscribe_form input {
+    height: 50px;
+    border: none;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    border-radius: 30px;
+    color: #000;
+}
+.icons:hover img {
+    transform: scale(1.2);
+}
