@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Data Tables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <script src="visualsearch/vendor/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="visualsearch/lib/css/reset.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="visualsearch/lib/css/icons.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="visualsearch/lib/css/workspace.css" type="text/css" media="screen" charset="utf-8">
+
+    <script src="visualsearch/vendor/jquery.ui.core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/vendor/jquery.ui.widget.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/vendor/jquery.ui.position.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/vendor/jquery.ui.menu.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/vendor/jquery.ui.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/vendor/underscore-1.5.2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/vendor/backbone-1.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/visualsearch.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/views/search_box.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/views/search_facet.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/views/search_input.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/models/search_facets.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/models/search_query.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/utils/backbone_extensions.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/utils/hotkeys.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/utils/jquery_extensions.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/utils/search_parser.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/utils/inflector.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visualsearch/lib/js/templates/templates.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 style="text-align: center;margin: 5%;">数据仓库 2019 期末项目</h1>
+
+        <div class="visual_search" style="margin: 10%;"></div>
+
+        <h3>共查询到 <span id="find_count"></span> 条记录</h3>
+        <h3>耗时 <span id="cost_time"></span></h3>
+        <div id="result_table"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var visualSearch = VS.init({
+                container: $('.visual_search'),
+                query: '',
+                minLength: 0,
+                showFacets: true,
+                readOnly: false,
+                unquotable: [
+                    'text',
+                    'account',
+                    'filter',
+                    'access'
+                ],
+                placeholder: "Search for your question...",
+                callbacks: {
+                    search: function (query, searchCollection) {
+                        console.log(searchCollection)
+                        var requestData = {}
+                        for (var index in searchCollection.models) {
+                           requestData[searchCollection.models[index]['attributes']['category']]
+                                = searchCollection.models[index]['attributes']['value']
+                        }
+                        console.log('request')
+                        console.log(requestData)
+                        $.ajax({
+                            url: '/query',
+                            type: 'GET',
+                            data: requestData,
+                            success: (response) => {
+                                console.log('response')
+                                console.log(response)
+                                document.getElementById("find_count").innerHTML = response['count']
+                                document.getElementById("result_table").innerHTML = response['result']
+                                document.getElementById("cost_time").innerHTML = response['time']
+                                $('.dataframe').DataTable();
+                            }
+                        })
+                    },
+                    valueMatches: function (category, searchTerm, callback) {
+                    },
+                    facetMatches: function (callback) {
+                        callback([
+                            'name',
+                            'relation',
+                            'genres',
+                            'score',
+                            'sentiment',
+                            { label: 'year', category: 'time' },
+                            { label: 'month', category: 'time' },
+                            { label: 'week', category: 'time' },
+                            { label: 'season', category: 'time' },
+                            { label: 'director', category: 'people'},
+                            { label: 'actor', category: 'people'},
+                            { label: 'starring', category: 'people'}
+                        ], {
+                            preserveOrder: true
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

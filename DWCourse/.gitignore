@@ -1,0 +1,10 @@
+**/data
+**/.DS_Store
+**/__pycache__/
+*.pyc
+*.log
+**/.vscode/
+**/.idea/
+**/results.txt
+**/movies.txt
+**.csv
