@@ -1,0 +1,90 @@
+.cart {
+    width: 100%;
+}
+
+.cartHead {
+    width: 100%;
+    height: 50px;
+}
+
+.cartTitle {
+    font-size: 45px;
+    line-height: 50px;
+}
+
+.cartContent {
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.cartItem {
+    width: 80%;
+    margin: 15px auto;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 8px lightgray;
+}
+
+.cartItemImg {
+    width: 160px;
+    height: 160px;
+    display: inline-block;
+}
+
+.cartItemImg img {
+    width: 130px;
+    height: 130px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.cartItemInfo {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    display: inline-block;
+    width: 200px;
+}
+
+.cartItemPrice {
+    margin-right: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: red;
+}
+
+.cartItemControl {
+    display: inline-block;
+    float: right;
+    margin-top: 100px;
+    margin-right: 20px;
+}
+
+.cartItemNum {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.cartButton {
+    /* 使用CSS工具生成的按钮样式 */
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.cartButton:hover {
+	background-color:#5cbf2a;
+}
+.cartButton:active {
+	position:relative;
+	top:1px;
+}

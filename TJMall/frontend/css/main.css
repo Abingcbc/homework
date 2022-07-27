@@ -1,0 +1,170 @@
+/* 解决body边距问题*/
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* 清除浮动，使高度自适应*/
+.clearFloat {
+    height: 1px;
+    margin-top: -1px;
+    clear: both;
+    overflow: hidden;
+}
+
+.productId {
+    display: none;
+}
+
+/*头部导航*/
+.nav {
+    width: 100%;
+    height: 35px;
+    background-color: lightgray;
+}
+
+.nav a {
+    text-decoration: none;
+    color: gray;
+    padding-left: 15px;
+    border-left: 1px solid lightgray;
+}
+
+.nav a:hover {
+    color: red;
+}
+
+.login {
+    padding-left: 6px;
+    padding-top: 6px;
+    display: inline-block;
+}
+
+.logined {
+    padding-left: 6px;
+    padding-top: 6px;
+    display: inline-block;
+}
+
+.information {
+    float: right;
+    padding-right: 16px;
+    padding-top: 6px;
+}
+
+/*商品容器*/
+.container {
+    width: 1024px;
+    margin: 30px auto;
+}
+
+/*商品种类，幻灯片*/
+.navSlide {
+    width: 1024px;
+    height: 520px;
+    margin: 0px auto;
+}
+
+.navCategory {
+    width: 200px;
+    height: 100%;
+    color: white;
+    float: left;
+    background-color: gray;
+}
+
+.navCategory ul {
+    width: 100%;
+    padding: 0px;
+    list-style: none;
+}
+
+.navCategory li {
+    padding: 7.5px;
+    padding-left: 15px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.navCategory li:hover {
+    background: white;
+    color: black;
+}
+
+.navCategoryItem:hover {
+    cursor: pointer;
+    color: red;
+}
+
+/*搜索框*/
+.search{
+    width: 40%;            
+    margin: 20px auto;
+    display: flex;
+}
+.search input{
+    float: left;
+    flex: 4;
+    height: 50px;
+    outline: none;
+    border: 1px solid red;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: 15px;
+}
+.search button{
+    float: right;
+    flex: 1;
+    height: 50px;
+    background-color: red;
+    color: white;
+    border-style: none;
+    outline: none;
+    font-size: 15px;
+}
+.search button i{
+    font-style: normal;
+}
+.search button:hover{
+    font-size: 25px;
+}
+
+/* 底部信息栏 */
+.footer {
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+    background-color: lightgray;
+}
+
+.footerIntro {
+    width: 100%;
+}
+
+.footerType {
+    width: 1038px;
+    margin: 0px auto;
+}
+
+.footerTypeInfo {
+    color: gray;
+    float: left;
+    margin: 8px 68px;
+}
+
+.footerTypeInfo ul {
+    list-style: none;
+}
+
+.footerTypeInfo li {
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 26px;
+}
+
+.footerTypeInfo li:first-child {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: bold;
+}

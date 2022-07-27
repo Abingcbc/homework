@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TJMall</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<script type='text/javascript' src="../js/index.js"></script>
+
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <div class="login">
+            <a href="/login">登录</a>
+        </div>
+        <div class="logined">
+            <a onclick="logout()">登出</a>
+        </div>
+        <div class="information">
+            <a href="/">首页</a>
+            <a href="/cart">购物车</a>
+            <a href="/order">历史订单</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="search">
+            <input type="text" placeholder="请输入商品关键词" name="" id="keyword" value="" />
+            <button onclick="search()"><i>搜索</i></button>
+        </div>
+        <div class="navSlide">
+            <!-- 侧边导航 -->
+            <div class="navCategory">
+                <ul>
+                    <li><span class="navCategoryItem">女装</span> / <span class="navCategoryItem">内衣</span></li>
+                    <li><span class="navCategoryItem">男装</span> / <span class="navCategoryItem">运动户外</span></li>
+                    <li><span class="navCategoryItem">女鞋</span> / <span class="navCategoryItem">男鞋</span> / <span
+                            class="navCategoryItem">箱包</span></li>
+                    <li><span class="navCategoryItem">美妆</span> / <span class="navCategoryItem">个人护理</span></li>
+                    <li><span class="navCategoryItem">腕表</span> / <span class="navCategoryItem">眼镜</span> / <span
+                            class="navCategoryItem">珠宝首饰</span></li>
+                    <li><span class="navCategoryItem">母婴玩具</span></li>
+                    <li><span class="navCategoryItem">零食</span> / <span class="navCategoryItem">茶酒</span> / <span
+                            class="navCategoryItem">进口食品</span></li>
+                    <li><span class="navCategoryItem">生鲜水果</span></li>
+                    <li><span class="navCategoryItem">大家电</span> / <span class="navCategoryItem">生活电器</span></li>
+                    <li><span class="navCategoryItem">家具器材</span></li>
+                    <li><span class="navCategoryItem">汽车</span> / <span class="navCategoryItem">配件</span> / <span
+                            class="navCategoryItem">用品</span></li>
+                    <li><span class="navCategoryItem">家纺</span> / <span class="navCategoryItem">家饰</span> / <span
+                            class="navCategoryItem">鲜花</span></li>
+                    <li><span class="navCategoryItem">医药保健</span></li>
+                    <li><span class="navCategoryItem">厨具</span> / <span class="navCategoryItem">收纳</span> / <span
+                            class="navCategoryItem">宠物</span></li>
+                    <li><span class="navCategoryItem">图书音像</span></li>
+                </ul>
+            </div>
+            <div class="slideContainer">
+                <!-- 幻灯片 -->
+                <div class="slide" style="left: 0px">
+                    <img src="https://img.alicdn.com/tfs/TB1CpK6Ghz1gK0jSZSgXXavwpXa-1570-610.jpg" name="1">
+                    <img src="https://img.alicdn.com/tfs/TB1xztvGFT7gK0jSZFpXXaTkpXa-1570-610.jpg_.webp" name="2">
+                    <img src="https://img.alicdn.com/tfs/TB1I7XtHeL2gK0jSZPhXXahvXXa-1570-610.png_.webp" name="3">
+                </div>
+                <div class="buttons">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
+                <a href="javascript:;" class="arrow arrow_left" onclick="prevPic()">
+                    <img src="../img/left.png"/>
+                </a>
+                <a href="javascript:;" class="arrow arrow_right" onclick="nextPic()">
+                    <img src="../img/right.png"/>
+                </a>
+            </div>
+        </div>
+        <!-- 商品显示区域 -->
+        <div class="content">
+            <div class="productOverview">
+                <div class="productOverviewHead">
+                    <div class="productOverviewIcon">
+                        <img src="../img/alarm.png">
+                    </div>
+                    <div class="productOverviewText">
+                        <span class="productOverviewTitle">百亿补贴</span>
+                        <span class="productOverviewRemarks">限时秒杀</span>
+                    </div>
+                </div>
+                <div class="productOverviewContent" id="productContainer">
+                </div>
+                <div class="clearFloat"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 使得商品列表高度可以自适应 -->
+    <div class="clearFloat"></div>
+    <!-- 底部信息 -->
+    <footer class="footer">
+        <div class="clearFloat"></div>
+        <div class="footerIntro">
+            <div class="footerType">
+                <div class="footerTypeInfo">
+                    <ul>
+                        <li>购物指南</li>
+                        <li>购物流程</li>
+                        <li>会员介绍</li>
+                        <li>生活旅行</li>
+                        <li>常见问题</li>
+                        <li>联系客服</li>
+                    </ul>
+                </div>
+                <div class="footerTypeInfo">
+                    <ul>
+                        <li>商城保障</li>
+                        <li>发票保障</li>
+                        <li>售后规则</li>
+                        <li>配送服务查询</li>
+                        <li>缺货赔付</li>
+                        <li>海外配送</li>
+                    </ul>
+                </div>
+                <div class="footerTypeInfo">
+                    <ul>
+                        <li>支付方式</li>
+                        <li>货到付款</li>
+                        <li>在线支付</li>
+                        <li>分期付款</li>
+                    </ul>
+                </div>
+                <div class="footerTypeInfo">
+                    <ul>
+                        <li>商家服务</li>
+                        <li>商家规则</li>
+                        <li>商家入驻</li>
+                        <li>商家中心</li>
+                        <li>物流服务</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+    </footer>
+</body>
+
+</html>
